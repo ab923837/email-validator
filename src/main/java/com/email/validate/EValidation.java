@@ -9,7 +9,7 @@ public class EValidation
 	//to keep track of number of rules the email passed
     private static int num=0;
     
-    public static void validate(String mail){
+    public static int validate(String mail){
     	//array to store characters
     	char[] words = new char[mail.length()];
     	//storing the characters in order in array
@@ -28,13 +28,6 @@ public class EValidation
     			num++;
     		}
     	}
-    	System.out.println(num);
-    }
-    
-    //for testing
-    public static void main(String[]args){
-    	String mail = "testin@gmail.com";
-    	validate(mail);
-    	
+    	return num;
     }
 }
