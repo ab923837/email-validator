@@ -17,9 +17,9 @@ public class EValidationTest
     {
 		boolean actual = false;
 		boolean expected = true;
-    	String correct = "hello@gmail.com";
-    	String wrong = "hello";
-    	if(email.validate(correct) == 2){
+    	String correct = "hello123@gmail.com";
+    	String test = "hello123@gmail.com";
+    	if(email.validate(test) == 4){
     		actual = true;
     	}
         assertEquals(actual, expected);
