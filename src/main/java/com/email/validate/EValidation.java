@@ -7,11 +7,12 @@ import java.util.regex.Pattern;
 public class EValidation 
 {
 	//to keep track of number of rules the email passed
-    private static int num=0;
+    private static int num = 0;
+    private static int atNum = 0;
 
     
     public static void main(String[]args){
-    	String test = "123456543201@gmail.com";
+    	String test = "abdullah@gmail.com";
     	System.out.println(validate(test));
     }
     
@@ -25,9 +26,9 @@ public class EValidation
     		words[i] = mail.charAt(i);
     	}
     	
-    	//RULE: MUST use @gmail.com
+    	//RULE: MUST use @gmail.com also checks for one period
     	if(mail.matches(".*@gmail.com")){
-    		num++;
+    		num += 2;
     	}
 
     	/*
@@ -40,17 +41,14 @@ public class EValidation
     	
     	
     	//RULE: checker for @
+    	//makes sure there arent any more @ in the email other than the one before gmail.com
     	for(int k=0; k < mail.length(); k++){
     		if(words[k] == '@'){
-    			num++;
+    			atNum++;
     		}
     	}
-    	//RULE: checker for .
-    	for(int k=0; k < mail.length(); k++){
-    		if(words[k] == '.'){
-    			num++;
-    		}
-    	}
+    	if(atNum == 1)
+    		num++;
     	return num;
    }
 }
